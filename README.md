@@ -77,18 +77,10 @@ Two main datasets were used for this analysis, joinning them into a third one us
 - Executive report with implications and comments on the relationship between economy and mobility.
 
 ### Key Findings
-Following the SCQA model, we have these findings:
-
-- S (Situation): in the Overview, the line graphic shows that both in 2024 and 2025 (as well as joining the two years), there´s a clear decrease during the winter months.
-- C (Complication): after reviewing the bar graphs, we realize that the "economic" customer´s profile as well as Colombia show values under the general average.
-- Q (Question): What´s going on during the winter and how are other variables moving depending on the country?
-- A (Answer): the sales fall abruptly during the winter and Colombia has very low sales at all the product categories.
-
-- S (Situation): the three regions of Colombia have both a Total Revenue and Amount of Sales below the general average.
-- C (Complication): the low values from Colombia match the low amount of requests in that country (compared to the average and the other country. We also notice that the "economic" customer profile is very low all the countries.
-- Q (Question): What is causing the low sales in Colombia and the weakness of the "Economic" customer´s profile?
-- A (Answer): the seasonality influences, since we notice that profit and total sales decrease in all the countries, but further measures and analyses have to be performed particularly for Colombia in all the product categories and with the "economic" customer´s profile in general.
+The analysis shows that in those cities where traffic jams and travelling times are lower, the PIB per capita is much better. There are only three cities that don´t follow this trend: Mexico City, Sao Paolo and Bogota, although this behaviour might be due to the fact that these are very densly populated cities, therefor, traffic jams and travelling times are always affected by an insufficient transportation infrastructure.
+This study reviewed all the columns and the irrelevant data was eliminated, keeping only the usefull columns to answer the questions of the bank, like travelling time, PIB and some others, filtered by the most recent period (2024). 
+In general, the cities with a bigger PIB has less traffic jams, except for Mexico City, Sao Paolo and Bogota, where traffic jams is over the average PIB. Besides the overpopulation, it must be considered the impact of the fact thar the three highest values in the column of jams_delays belong to these cities, and particularly for Mexico City and Bogota are extremely high (the outlier on the Boxplot). Besides these three cities, I do find that a higher PIB is directly related with lower leves of traffic jams. 
+THe column of jams_delay shows that most of the values are below 900 minutes, nevertheless, I searched for the rows that were over this value and then four cities were filtered: Lima, Bogota, Sao Paolo and Mexico City. The first two are not really far dfrom where the big majority of cities are, but Sao Paolo is shown as the maximum in the Boxplot (with 1,729 minutes) and Mexico City as an outlier (with 2,833 minutes). These two last high values might be affecting the graphics where PIB and Traffic Jams are compared.
 
 ### Recommendations
-Sales fall abruptly during winter (both profit and amount of properties sold). More concerning is Colombia, where sales are very low for all the property categories. Also, it´s important to analyze the weakness of the "economic" customer´s profile. Marketing has to focus on these red spots.
-Customer´s retention is very low, which is expected in this business, where only the "investor" customer´s profile stays active for longer periods.
+The first step will be to check with more detail the values for Mexico City, Sao Paolo and Bogota, to explore and explain the outliers that seem to rise the values on jams_Delay, breaking with the founded trend showed on the Bar Grpah, where we see the direct relationship between high PIB and low traffic jams. If the values are correct, then it should be highly recommended to apply important actions to improve the mobility and decrease the traffic jams in those cities that are so far from the patterns found for the other cities of Latin America. Both cities requiere more attention. 
