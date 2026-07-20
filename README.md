@@ -1,4 +1,4 @@
-# Movilidad Urbana: análisis exploratorios y visualizaciones en Python
+# Relación entre productividad económica y movilidad urbana  /  Relationship between economic productivity and urban mobility  
 
 ## ES Español (English below)
 
@@ -10,7 +10,7 @@
 Proyecto de Bootcamp TripleTen para crear en Jupyter Notebook un reporte para el American Development Bank con el fin de entender cómo la movilidad urbana (niveles de congestión, tiempos de viaje, retrasos) se relaciona con la productividad económica (PIB per cápita, desempleo) en las principales ciudades del mundo.
 
 ### Objetivos del proyecto
-El objetivo primordial del banco es dentificar en qué ciudades invertir en infraestructura de transporte para aumentar la productividad y el bienestar de la población. Las preguntas concretas a responder son:
+El objetivo primordial del banco es identificar en qué ciudades invertir en infraestructura de transporte para aumentar la productividad y el bienestar de la población. Las preguntas concretas a responder son:
 - ¿Qué ciudades presentan alta congestión y baja productividad económica?
 - ¿Cuáles muestran los mejores indicadores combinados (movilidad eficiente y economía fuerte)?
 - ¿Qué variables parecen tener una relación más fuerte con el desarrollo urbano?
@@ -22,97 +22,59 @@ Para este estudio, se usaron dos datasets principales, los cuales se unieron par
 - ladb_mobility_economy_2024_clean.csv: unión de ambos datasets tras realizar la limpieza y normalización de datos y poder entender cómo la eficiencia del tráfico urbano se relaciona con el desempeño económico.
 
 #### Tareas realizadas:  
-- Carga y exploración de datos (identificación de columnas, tipos de datos y estructura general de ambos datasets.
+- Carga y exploración de datos (identificación de columnas, tipos de datos y estructura general de ambos datasets).
 - Limpieza y correción: estandarización de nombres de columnas y correción de tipos de datos.
 - Extracción y filtrado: se trabajó solamente con el periodo más reciente (2024), extrayendo el año y filtrando resultados.
 - Cálculo de promedios de tráfico por ciudad para obtener una vista consolidada de la movilidad urbana.
 - Unión de los dos datasts tomando como llave de unión la ciudad.
-- Generar gráficos para explorar patrones entre tráfico y economía.
+- Boxplot para visualizar la distribución del tráfico (media, mediana y valores atípicos).
+- Histograma para analizar la forma de la distribución y el valor promedio del PIB per cápita. 
 - Informe ejecutivo con implicaciones y reflexiones sobre la relación entre economía y movilidad.
 
-### Desempeño general
-- KPIs clave para visualizar el panorama general: ingreso total, cantidad de ventas, ticket promedio, comisión total y Crecimiento YoY (Year-Over-Year).
-- Gráfico de líneas: Ingreso total por mes a lo largo del tiempo.
-- Gráficos de barras: uno con Cantidad de ventas por ciudad y otro con Ingreso total por ciudad.
-- Segmentadores: temporal (por año) y por tipo de cliente. Estos segmentadores ayudan a ver rápidamente las estadísticas generales y gráficos anteriores según los filtros de los segmentadores.
-
-### Análisis Comercial
-Gráficos de barras que profundizan en diversos aspectos del desempeño de la empresa:
-- Ingreso total y cantidad de ventas por tipo de propiedad.
-- Ingreso total y cantidad de ventas por canal de venta.
-- Ingreso total y cantidad de ventas por segmento de cliente.
-Se agrega también una tabla con el ingreso total, la cantidad de ventas y el ticket promedio
-
-### Análisis de retención de cohortes
-Matriz con la retención de cohortes. Puede ser segmentada por el tipo de cliente y por ciudad.
-
 ### Hallazgos clave
-Siguiendo el modelo SCQA, tenemos los siguientes hallazgos:
-
-- S (Situación): en el Overview, el gráfico de líneas nos muestra que tanto en 2024 como en 2025 (y al unir los dos años también), hay una notoria caída en los meses de invierno.
-- C (Complicación): al ver los demás gráficos de barras, nos damos cuenta de que el segmento de cliente "Económico" y Colombia muestran valores por debajo del promedio.
-- Q (Pregunta: ¿Qué está pasando en el Invierno y cómo se distribuyen diferentes variables por país?
-- A (Respuesta): las ventas caen abruptamente en invierno y Colombia tiene niveles muy bajos en todas las categorías de productos.
-
-- S (Situación): las tres regiones de Colombia tienen una utilidad total y una cantidad de unidades vendidas por debajo del promedio.
-- C (Complicación): los valores bajos de Colombia corresponden con mantener cantidades de pedidos muy por debajo de los otros dos países y del promedio. También vemos que el segmento "Económico" es muy bajo en los tres países.
-- Q (Pregunta): ¿Qué está causando las ventas bajas en Colombia y la debilidad en el segmento "Económico"?
-- A (Respuesta): la estacionalidad influye, ya que notamos una caída en la utilidad y las unidades vendidas en todos los países, pero se deben tomar medidas y revisiones más detalladas respecto a lo que está pasando en Colombia en todas los categorías de productos y en particular con el segmentos "Económico" para todos los países.
+El análisis nos muestra que en aquellas ciudades donde la congestión y los tiempos de traslados son menores, el PIB per cápita es mucho mayor. Solamente hay tres ciudades que rompen con este patrón: Ciudad de México, Sao Paulo y Bogotá, sin embargo, este comportamiento puede deberse a que son ciudades densamente pobladas y los tiempos de viaje y congestión vehicular se ven siempre afectados por la insuficiente infraestructura.
+El estudio fue revisando las columnas con datos de cada Dataset y se fueron eliminando los datos que no fueran relevantes. Se consideraron aquellos datos importantes para responder a las preguntas, tales como los tiempos de viaje, métricas de tiempo y sobre todo, las del PIB, todas agrupadas con datos geográficas (es decir, ciudades y países), limitando todo esto al año 2024.
+En general, las ciudades con mayor PIB tienen poca congestión, a excepción de la Ciudad de México, Sao Paulo y Bogotá, donde la congestión está por encima del PIB promedio. Esto puede deberse también a que son ciudades densamente pobladas. Pero también habría que revisar el impacto que tiene el hecho de que los tres valores máximos en la columna de jams_delay aparecen justamente para estas ciudades, y particularmente en Ciudad de México y Sao Paulo son sospechosamente altos (marcando el valor máximo y el outlier en el BoxPlot "Jams_Delay"). Fuera de esas tres ciudades, encuentro que un PIB alto tiene una relación directa con niveles de congestión mucho más bajos.
+En la columna de Jams_Delay, el BoxPlot nos muestra que la gran mayoría de los valores están por debajo de los 900 minutos; sin embargo, se buscaron aquellas filas que estuvieran por encima de este valor y el resultado fueron cuatro ciudades: Lima, Bogotá, Sao Paulo y Ciudad de México. Las primeras dos realmente no se distancian mucho del espacio en donde se encuentran la mayoría de los datos, sin embargo, Sao Paulo, con un valor de 1,729 minutos (representado en el BoxPlot como "máximo") y Ciudad de México, con valor de 2,833 (representado como "outlier" en el BoxPlot) nos reflejan valores sospechosamente altos que habría que revisar a detalle, ya que esos valores tan altos podrían estar creando distorsión en la gráfica de columnas donde comparamos PIB vs Congestión.
 
 ### Recomendaciones
-Las ventas caen abrupamente en Invierno (tanto la utilidad como la cantidad de propiedades vendidas). Más preocupante es el mercado de Colombia, que tiene ventas muy bajas en todos los productos y se debe profundizar también en la debilidad de los clientes del segmento "económicos". Atención a marketing sobre estos focos rojos.
-La retención de clientes es muy baja, lo cual es de esperarse en este tipo de negocio, donde solamente el tipo de cliente "inversionista" se mantiene activo por más tiempo.
+Sin duda el primer paso es revisar los valores de Ciudad de México, Sao Paulo y Bogotá para explorar de dónde vienen esos outliers que parecen inflar los valores de jams_delay y por ende rompen con el patrón hallado en el gráfico de columnas donde vemos una relación directa entre Alto_PIB / Baja_Congestión. En caso de que las lecturas sean correctas, habría entonces que pensar en medidas urgentes para mejorar la movilidad y disminuir el tráfico en esas ciudades que salen tan marcadamente del patrón que las otras ciudades latinoamericanas tienen.
+Las dos ciudades que requieren mayor atención son Ciudad de México y Sao Paulo. Si sus mediciones son correctas, estas dos ciudades tienen un valor más alto de congestión vs. el PIB, reflejando una importante necesidad de mejorar el tema de movilidad urbana.
 
 ---
 
-# Commercial Performance Dashboard for the Real Estate Andes Capital company
+# Relationship between economic productivity and urban mobility 
 
 ## EN English (Spanish above)
 
 **Role:** Data Analyst (Intern).
-**Tools:** Power BI, Jupyter Notebook.
-**Skills:** Database exploration and data cleaning, visualization design and planification, dashboard storytelling using the SCQA model (Situation, Complication, Question, Answer), cohort analysis.
+**Tools:** Jupyter Notebook, Python (Pandas, Numpy, Scipy, Matplotlib, Seaborn).
+**Skills:** Database exploration and data cleaning, visualization design and planification.
 
 ### Project description
-TripleTen Bootcamp project for the creation of a Power BI dashboard for commercial analysis in a Real Estate company, in order to understand the commercial performance of different classes of properties throughout sales channels and customer profiles.
+TripleTen Bootcamp project for the creation on Jupyter Notebook of a report for the American Development Bank to understand how urban mobility (traffic jams, travel times and delays) relate to economic productivity (PIB per cápita, unemployment) in the main cities of the world. 
 
 ### Project goals
-The dashboard will help to answer questions like:
-- What is the total revenue from property sales? 
-- What kind of property generates the major income?
-- Which customer profile purchases more?
-- How does the sales evolve across time?
-- Is the business growing year over year? 
-- Do the customers buy again after their first purchase? 
+The bank´s main goal is to identify in which cities they have to invest in transport infrastructure in order to raise the productivity and life quality of the population. Concrete questions are:
+- Which cities have the higher traffic jams and the lowest economic productivity?
+- Which cities show the best combined indicators (eficient mobility and healthy economy)?
+- Which variables seem to have a stronger relationship with urban development? 
 
 ### Data preparation  
-Three different datasets were cleaned and integrated (attached in the repository files):  
-- dim_clientes.csv: contains all the data from the customers.
-- dim_propiedades.csv: complete information regarding the properties.
-- hecho_ventas_propiedades.csv: transactional data of the properties´ sales.
+Two main datasets were used for this analysis, joinning them into a third one used for the final report:  
+- tomtom_traffic.csv: dataset with information about jams delays and traffic conditions in several cities of the world.
+- oecd_city_economy.csv: economic and environmental indicators by city, gathered by the OECD (Organization for Cooperation and Economic Develepment).
+- ladb_mobility_economy_2024_clean.csv: join of both datasets after cleaning and normalization of data, in order to understand traffic eficiency related to economic development. 
 
 #### Tasks performed:  
-- Data type conversion and date noramlization.
-- Creation of a new table in Power BI, to manage tempral data (dim_fechas).
-- Basic statistics to mesure the commercial performance.  
-- Datasets union using primary keys for a full analysis.
-- Graphic design and creation in order to visualize and answer the project goals.
-
-### General Performance
-- Key KPIs to visualize the general overview: Total revenue, Amount of sales, Average ticket, Total comission and YoY Growth.
-- Line graph: Total revenue per month across time.
-- Bar graph: one for Amount of Sales per City and another one for Total Revenue per City.
-- Slicers: temporal (per year) and by customer´s profile. These slicers help to quickly visualize the basic stats and graphs above-mentiones based on the slicer´s filters.
-
-### Commercial Analysis
-Bar graphs that deeply analyze several aspects of the company´s performance:
-- Total revenue and Amount of Sales by Property Type.
-- Total revenue and Amount of Sales by Sales Channel.
-- Total revenue and Amount of Sales by Customer´s Profile.
-A table with total revenue, amount of sales and average ticket is also included.
-
-### Cohort Retention Analysis
-Matrix with the cohort retention. It can be filtered by customer´s profile and by city.
+- Data load and exploration (identifying columns, data types and the general structure of both datasets).
+- Cleaning and validation: column name standarization and validation of data tyoes.
+- Extracción and filtering: the analysis was based on the most recent period (2024) so this year was extracted and filtered.
+- Average estimations for traffic per city to get an overview of urban mobility.
+- Join of both datasets using city as the key.
+- Boxplot to visualize traffic distribution (mean, median and outliers).
+- Histogram to analyze the distribution and average value of PIB per capita.
+- Executive report with implications and comments on the relationship between economy and mobility.
 
 ### Key Findings
 Following the SCQA model, we have these findings:
