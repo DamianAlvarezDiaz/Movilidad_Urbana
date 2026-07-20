@@ -4,32 +4,31 @@
 
 **Rol:** Analista de Datos (Prácticas).
 **Herramientas:** Jupyter Notebook, Python (Pandas, Numpy, Scipy, Matplotlib, Seaborn).
-**Habilidades:** Exploración y limpieza de base de datos, diseño y planificación de visualización.
+**Habilidades:** Exploración y limpieza de base de datos, diseño y planificación de visualizaciones.
 
 ### Descripción del proyecto
-Proyecto de Bootcamp TripleTen para crear en Power BI un dashboard de análisis comercial inmobiliario, para comprender mejor el desempeño comercial de diferentes tipos de propiedades a través de distintos canales de venta y segmentos de clientes.
+Proyecto de Bootcamp TripleTen para crear en Jupyter Notebook un reporte para el American Development Bank con el fin de entender cómo la movilidad urbana (niveles de congestión, tiempos de viaje, retrasos) se relaciona con la productividad económica (PIB per cápita, desempleo) en las principales ciudades del mundo.
 
 ### Objetivos del proyecto
-El dashboard ayuda a responder preguntas como:
-- ¿Cuál es el ingreso total generado por las ventas de propiedades?
-- ¿Qué tipo de propiedad genera más ingresos?
-- ¿Qué segmentos de clientes compran más?
-- ¿Cómo evolucionan las ventas en el tiempo?
-- ¿El negocio está creciendo año contra año?
-- ¿Los clientes vuelven a comprar después de su primera compra?
+El objetivo primordial del banco es dentificar en qué ciudades invertir en infraestructura de transporte para aumentar la productividad y el bienestar de la población. Las preguntas concretas a responder son:
+- ¿Qué ciudades presentan alta congestión y baja productividad económica?
+- ¿Cuáles muestran los mejores indicadores combinados (movilidad eficiente y economía fuerte)?
+- ¿Qué variables parecen tener una relación más fuerte con el desarrollo urbano?
 
 ### Preparación de los datos  
-Se limpiaron e integraron tres datasets principales, adjuntas en este repositorio:  
-- dim_clientes.csv: contiene los datos de los clientes.
-- dim_propiedades.csv: información completa de las propiedades.
-- hecho_ventas_propiedades.csv: datos transaccionales de las ventas.
+Para este estudio, se usaron dos datasets principales, los cuales se unieron para crear el dataset para el análisis final:
+- tomtom_traffic.csv: datos sobre congestión vehicular y condiciones de tráfico en ciudades del mundo.
+- oecd_city_economy.csv: indicadores económicos y ambientales por ciudad, recopilados por la OECD (Organización para la Cooperación y el Desarrollo Económico).
+- ladb_mobility_economy_2024_clean.csv: unión de ambos datasets tras realizar la limpieza y normalización de datos y poder entender cómo la eficiencia del tráfico urbano se relaciona con el desempeño económico.
 
 #### Tareas realizadas:  
-- Conversión de tipos y normalización de fechas.
-- Creación en Power BI de una nueva tabla para manejar datos temporales (dim_fechas).
-- Cálculo de estadísticas básicas para medir el desempeño comercial.  
-- Unión de datasets por claves comunes para análisis completo.
-- Diseño y creación de gráficos para visualizar y responder a los objetivos del proyecto.
+- Carga y exploración de datos (identificación de columnas, tipos de datos y estructura general de ambos datasets.
+- Limpieza y correción: estandarización de nombres de columnas y correción de tipos de datos.
+- Extracción y filtrado: se trabajó solamente con el periodo más reciente (2024), extrayendo el año y filtrando resultados.
+- Cálculo de promedios de tráfico por ciudad para obtener una vista consolidada de la movilidad urbana.
+- Unión de los dos datasts tomando como llave de unión la ciudad.
+- Generar gráficos para explorar patrones entre tráfico y economía.
+- Informe ejecutivo con implicaciones y reflexiones sobre la relación entre economía y movilidad.
 
 ### Desempeño general
 - KPIs clave para visualizar el panorama general: ingreso total, cantidad de ventas, ticket promedio, comisión total y Crecimiento YoY (Year-Over-Year).
